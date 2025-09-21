@@ -1,0 +1,25 @@
+docker ps
+
+docker rm mongo mysql 
+
+docker images  
+
+docker run --name mysql -p 15000:3306 -e MYSQL_ROOT_PASSWORD=mysql -v mysql-data:/var/lib/mysql mysql:lts
+
+docker volume rm mongo-data mysql-data; docker volume prune
+
+docker volume create mysql-data
+
+docker run --name mysql -v mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=mysql -p 15000:3306 -d mysql:lts
+
+docker create mongo-data
+
+docker images
+
+docker run --name mongo -v mongo-data:/data/db -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=mongo -p 16000:27017 -d mongo:7.0.23
+
+---------------------------------------------------------------------------------------------------------
+
+Do project GCP 
+courser service connect GCP
+
